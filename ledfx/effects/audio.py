@@ -40,6 +40,7 @@ class AudioInputSource:
     _audio_stream_active = False
     _audio = None
     _stream = None
+    _stream_channels = 1
     _callbacks: ClassVar[list[Callable[[], None]]] = []
     _audioWindowSize = 4
     _processed_audio_sample = None
@@ -569,7 +570,7 @@ class AudioInputSource:
         if hasattr(self, "_config"):
             old_config = self._config
             # Pipeline-affecting keys require rebuilding internal audio objects even when the audio stream should stay active.
-            _PIPELINE_KEYS = ("delay_ms", "sample_rate", "fft_size")
+            _PIPELINE_KEYS = ("delay_ms", "sample_rate", "fft_size", "audio_channel")
             pipeline_changing = any(
                 getattr(old_config, k) != getattr(new_config, k) for k in _PIPELINE_KEYS
             )
@@ -807,13 +808,18 @@ class AudioInputSource:
                     device["name"],
                     device["max_input_channels"],
                 )
-            else:
+            elif self._config.audio_channel < 0:
                 # if are not a windows loopback device, we will downmix to mono
                 # issue seen with poor audio behaviour on Mac and Linux
                 # this is similar to the long standing prior implementation
                 channels = 1
+            # without a channels argument sounddevice opens all input channels
+            self._stream_channels = max(
+                1, channels or device.get("max_input_channels", 1)
+            )
 
             if hostapis[device["hostapi"]]["name"] == "WEB AUDIO":
+                self._stream_channels = 1
                 ledfx.api.websocket.ACTIVE_AUDIO_STREAM = AudioInputSource._stream = (
                     WebAudioStream(device["client"], self._audio_sample_callback)
                 )
@@ -821,6 +827,8 @@ class AudioInputSource:
                 SENDSPIN_AVAILABLE and hostapis[device["hostapi"]]["name"] == "SENDSPIN"
             ):
                 from ledfx.sendspin.stream import SendspinAudioStream
+
+                self._stream_channels = 1
 
                 _LOGGER.debug(
                     "Opening SendspinAudioStream for '%s'",
@@ -1023,11 +1031,26 @@ class AudioInputSource:
 
         return -1
 
+    def _select_channel(self, raw_sample):
+        """Reduce an interleaved multichannel buffer to one mono channel.
+
+        Uses the configured audio_channel, or the mean of all channels when it
+        is -1 or not present on the stream.
+        """
+        channels = self._stream_channels
+        if channels <= 1 or len(raw_sample) % channels:
+            return raw_sample
+        frames = raw_sample.reshape(-1, channels)
+        channel = self._config.audio_channel
+        if 0 <= channel < channels:
+            return np.ascontiguousarray(frames[:, channel])
+        return frames.mean(axis=1, dtype=np.float32)
+
     def _audio_sample_callback(self, in_data, frame_count, time_info, status):
         """Callback for when a new audio sample is acquired"""
         # time_start = time.time()
         # self._raw_audio_sample = np.frombuffer(in_data, dtype=np.float32)
-        raw_sample = np.frombuffer(in_data, dtype=np.float32)
+        raw_sample = self._select_channel(np.frombuffer(in_data, dtype=np.float32))
 
         in_sample_len = len(raw_sample)
         out_sample_len = MIC_RATE // self._config.sample_rate

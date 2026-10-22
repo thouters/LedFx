@@ -411,6 +411,14 @@
      "description": "Add a delay to LedFx's output to sync with your audio. Useful for Bluetooth devices which typically have a short audio lag.",
      "default": 0
     },
+    "audio_channel": {
+     "type": "integer",
+     "minimum": -1,
+     "maximum": 31,
+     "title": "Audio Channel",
+     "description": "Input channel to analyse, counting from 0 (e.g. 0 = front left). -1 mixes all channels to mono.",
+     "default": -1
+    },
     "pitch_method": {
      "type": "string",
      "enum": [
@@ -454,6 +462,7 @@
     "min_volume",
     "audio_device",
     "delay_ms",
+    "audio_channel",
     "pitch_method",
     "onset_method",
     "pitch_tolerance"

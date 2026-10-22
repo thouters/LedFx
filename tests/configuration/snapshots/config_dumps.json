@@ -1,6 +1,6 @@
 {
  "hammer_test.json": {
-  "config": "e8595a469a4a5da9c235d6135fe3b3cd3f82e71c96c8e2317e161c6c8bfeb913",
+  "config": "4a171d21b90dde2a94689f590582882c11ff4c88db1f0656fcd76ad45d7b325f",
   "devices:dummy": "bcf581b4520b86559a50b19a7ba172334a69eca2690767593eb8d2d450a99496",
   "effects:bar": "de367a677852817e54405b68ebfbba2e3f174949ebc46dda5d81456a319cdb62",
   "effects:blade_power_plus": "165dc846064d012220274fbf1f27a97f3899d2fe366dfd29be0fc6c1fa7003b4",
@@ -58,7 +58,7 @@
   "effects:wavelength": "2dc96e796b1107024e025a66e30cd490d1d7ff45907c34cf104d420913aadca1"
  },
  "remapping_config.json": {
-  "config": "1caf66fadef05af86b3e14b899df33fce8b6c1c3e3db431f66fbc01e5dc2e221",
+  "config": "e9796257a0242d73db4330d847a379f87583146df1c8ce092e9a615ff04b2332",
   "devices:dummy": "3b7f2904bcb88bd368804044573af75b29280f39ea251d9685608a64b240108b",
   "effects:bar": "de367a677852817e54405b68ebfbba2e3f174949ebc46dda5d81456a319cdb62",
   "effects:blade_power_plus": "165dc846064d012220274fbf1f27a97f3899d2fe366dfd29be0fc6c1fa7003b4",
@@ -116,7 +116,7 @@
   "effects:wavelength": "2dc96e796b1107024e025a66e30cd490d1d7ff45907c34cf104d420913aadca1"
  },
  "scenes_playlists.json": {
-  "config": "39a88a728f9424c6ef9d7a7fd29cacf8bc8a36ec31f0a48cb8b38ef56eed64ec",
+  "config": "244480b984f86adb10c957aa2f2b8246314864626509fe28f119bbb56036dc1d",
   "devices:dummy": "21c33690a617a361d7a66af13bc06f910d3189a7ec0a7bfa64f1615920d021cb",
   "effects:equalizer2d": "86d575bd397a74a70e0ca81de506ba6276e62203efc0c88381c105132b06da55",
   "effects:noise2d": "7527693d8ed51498cf1cdcbe0db275219af7f04db76bf90d68c5a452290ed9a1",
@@ -128,7 +128,7 @@
   "effects:wavelength": "2dc96e796b1107024e025a66e30cd490d1d7ff45907c34cf104d420913aadca1"
  },
  "v2_3_6_every_plugin.json": {
-  "config": "bf4d6476470ce96d15e6db0ae764337e427d833bf9876598d07ac3b33eb896af",
+  "config": "4c7e1918931cb41fc49a28f94f0bf52806da349bbec9dc78d5c7469fd5ca3143",
   "devices:adalight": "944b53cb6d8909c2df126556be95bcc08e933f686dc910eb7e85dc44f5818dfa",
   "devices:artnet": "cd6b1a205bfda0b1f069f66da774066cf51a068790911d80f708409cb688bb59",
   "devices:ddp": "fcebb542c3f8eabe6ff136236dae9d09f167f057d44548f53c624d5e8f14fca0",
@@ -174,7 +174,7 @@
   "integrations:spotify": "0e29a8f9ef663205de8f0b9233fa1adc47ae94531a86dee2f8735ca0054e3e67"
  },
  "virtuals_remapping_hell.json": {
-  "config": "e6d18dd96fe064e18fe1ec16390b14e4ca1a1fa4a9e1046a7edcf75db32b7061",
+  "config": "fdbc6fe2c307fcdbb238a161fcb8757eac0b0e6733be0bddf20575b7f85b030e",
   "devices:dummy": "d0c74c8dd0c5b3cf4b19d8b2d761ceddedb7df41da507e1022b4e293a9af1a0c",
   "effects:bar": "de367a677852817e54405b68ebfbba2e3f174949ebc46dda5d81456a319cdb62",
   "effects:blade_power_plus": "165dc846064d012220274fbf1f27a97f3899d2fe366dfd29be0fc6c1fa7003b4",
@@ -232,17 +232,17 @@
   "effects:wavelength": "2dc96e796b1107024e025a66e30cd490d1d7ff45907c34cf104d420913aadca1"
  },
  "v0_devices_only.json": {
-  "config": "6496faa1c273755703355aaec01d7f9ba7f87b4e37652111e906a501a15c9915",
+  "config": "18603c8a84422cd342292b0b0df411a73ac30430c8d710e272aec17f2172ae80",
   "devices:wled": "8eb3858035f0fb30db86d7cf5674c10baf597e4a4dd320a0643e46517cfd6d43"
  },
  "v0_displays.json": {
-  "config": "f23d6ef86cbd34a560ed4c69694f702a810fe3f1f7ba26e09e13ff9fb938e736",
+  "config": "b48c2c195a55104fe28a1ca3045ee54072f59ce74ba7c928d7b546c5990856dd",
   "devices:artnet": "62f0885972d319929c856f41de580c97a1071f832785060e1774abb0b2dbc917",
   "devices:e131": "e8ac3db7a0c23ff3bd22fbeea401df44c84786780a6a73ff308a95b0f870e97c",
   "effects:rainbow": "9192e3027adb198c3f300013d8c49f45c5888604feb379d1cf187f78cb025b8e"
  },
  "v2_3_5_equalizer.json": {
-  "config": "74cf4f56902a437bcfec75418f35f56d8f2bcc305362f5f69fd8c011c780c592",
+  "config": "1b317a0434263cf784288f5af857749b4d3b695311fbfb982b7e50180e651aa7",
   "effects:equalizer2d": "7a1869be61dac97e53e7ff64e34262f6e52b2ca660eeb0d17b9e1212a41e1b6c"
  }
 }

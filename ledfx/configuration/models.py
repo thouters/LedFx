@@ -130,6 +130,12 @@ class AudioInputConfig(LedFxModel):
         le=5000,
         description="Add a delay to LedFx's output to sync with your audio. Useful for Bluetooth devices which typically have a short audio lag.",
     )
+    audio_channel: CoercedInt = Field(
+        -1,
+        ge=-1,
+        le=31,
+        description="Input channel to analyse, counting from 0 (e.g. 0 = front left). -1 mixes all channels to mono.",
+    )
 
 
 class AudioAnalysisConfig(LedFxModel):

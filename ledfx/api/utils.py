@@ -7,6 +7,7 @@ PERMITTED_KEYS = {
         "min_volume",
         "audio_device",
         "delay_ms",
+        "audio_channel",
         "pitch_method",
         "onset_method",
         "pitch_tolerance",

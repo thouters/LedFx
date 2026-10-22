@@ -94,6 +94,14 @@
      "minimum": 0,
      "title": "Delay Ms",
      "type": "integer"
+    },
+    "audio_channel": {
+     "default": -1,
+     "description": "Input channel to analyse, counting from 0 (e.g. 0 = front left). -1 mixes all channels to mono.",
+     "maximum": 31,
+     "minimum": -1,
+     "title": "Audio Channel",
+     "type": "integer"
     }
    },
    "title": "AudioConfig",
@@ -574,6 +582,14 @@
        "maximum": 5000,
        "minimum": 0,
        "title": "Delay Ms",
+       "type": "integer"
+      },
+      "audio_channel": {
+       "default": -1,
+       "description": "Input channel to analyse, counting from 0 (e.g. 0 = front left). -1 mixes all channels to mono.",
+       "maximum": 31,
+       "minimum": -1,
+       "title": "Audio Channel",
        "type": "integer"
       }
      },
@@ -1683,7 +1699,8 @@
       "min_volume": 0.2,
       "audio_device": null,
       "audio_device_name": "",
-      "delay_ms": 0
+      "delay_ms": 0,
+      "audio_channel": -1
      },
      "title": "Audio"
     },
